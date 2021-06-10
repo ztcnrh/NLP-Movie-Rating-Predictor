@@ -8,6 +8,7 @@
 
 */config.py
 */config.js
+postgres_password.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
