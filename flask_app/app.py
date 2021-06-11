@@ -25,20 +25,20 @@ app = Flask(__name__)
 # from .models import Parking, Weather
 # from .models import ppa_schema
 
-database_path = '../flask_app/static/data/data_all.sqlite'
-engine = create_engine(f'sqlite:///{database_path}')
-conn = engine.connect()
+# database_path = '../flask_app/static/data/data_all.sqlite'
+# engine = create_engine(f'sqlite:///{database_path}')
+# conn = engine.connect()
 
-# Reflect an existing database into a new model
-Base = automap_base()
-# Reflect the tables
-Base.prepare(engine, reflect=True)
+# # Reflect an existing database into a new model
+# Base = automap_base()
+# # Reflect the tables
+# Base.prepare(engine, reflect=True)
 
-# View all of the classes that automap found
-print(Base.classes.keys())
+# # View all of the classes that automap found
+# print(Base.classes.keys())
 
-# Save references to each table
-Movies = Base.classes.movies
+# # Save references to each table
+# Movies = Base.classes.movies
 # --------------------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------------------
 
