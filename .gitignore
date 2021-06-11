@@ -9,6 +9,7 @@
 */config.py
 */config.js
 postgres_password.py
+rating_random_forests.sav
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
