@@ -79,65 +79,60 @@ def index():
 @app.route("/predict", methods =['GET','POST'])
 def predict():
 
-       # GET request
+    # GET request
     if request.method == 'GET':
         message = {'greeting':'Hello from Flask!'}
         return jsonify(message)  # serialize and use JSON headers
     # POST request
     if request.method == 'POST':
-        
-        
         print(request.get_json())  # parse as JSON
         data = request.get_json()
 
 
         """        
-        preprocessing pipeline
+        Preprocessing pipeline
         """        
 
-        # #load in original training data
+        # Load in original training data
         movies_df = pd.read_csv("https://data-bootcamp-ztc.s3.amazonaws.com/movies_complete_cleaned.csv")
-        df = movies_df[["name", "plot"]]
-        df.set_index("name",inplace = True)
+        df = movies_df[['name', 'plot', 'rating']]
+        df.set_index("name", inplace=True)
 
-        # df = df.dropna(axis='index', subset=['plot'])
+        # Remove NC-17 rated movie to minimize skewing
+        df = df.loc[df['rating'] != 'NC-17']
+        # Drop rows without plot data
         df = df.dropna(axis='index', subset=['plot'])
 
-         # #generate plot_len
+         # Generate plot_len
         df["plot_len"] = [len(x) for x in df["plot"]]
 
-        # ##remove puctuation 
+        # Remove puctuation 
         import string
-        nltk.download('punkt')
+        nltk.download('punkt') # nltk download
         def remove_punct(text):
             table = str.maketrans("", "", string.punctuation)
             return text.translate(table)
         df["plot"] = [remove_punct(x) for x in df["plot"]]
 
-        # ## remove stop words
-        
-        nltk.download('stopwords')
+        # Remove stop words
+        nltk.download('stopwords') # nltk download
         from nltk.corpus import stopwords
         stop = set(stopwords.words("english"))
         def remove_stopwords(text):
             text = [word.lower() for word in text.split() if word.lower() not in stop]
-
             return " ".join(text)
         df["plot"] = [remove_stopwords(x) for x in df["plot"]]
 
-        # # Lemmatization
-        # from nltk.stem import WordNetLemmatizer
-        # nltk.download('wordnet')
-        # wordnet_lemmatizer = WordNetLemmatizer()
-
-        # def stemming(stopwords_removed):
-        #     text = [wordnet_lemmatizer.lemmatize(word) for word in stopwords_removed]
-        #     return text
-
-        # df["plot"] = [stemming(x) for x in df["plot"]]
-      
+        # Lemmatization
+        from nltk.stem import WordNetLemmatizer
+        nltk.download('wordnet') # nltk download
+        wordnet_lemmatizer = WordNetLemmatizer()
+        def stemming(text):
+            text = [wordnet_lemmatizer.lemmatize(word) for word in text.split()]
+            return " ".join(text)
+        df["plot"] = [stemming(x) for x in df["plot"]]
        
-        # ## split dataset
+        # Split dataset
         from sklearn.model_selection import train_test_split
         X = df[["plot_len", "plot"]]
         y = df.index #placeholder
@@ -151,7 +146,6 @@ def predict():
         # cv = HashingVectorizer().fit(X_train["plot"])
         # X_train_counts = cv.transform(X_train["plot"])
         # tf_transformer = TfidfTransformer(use_idf=True).fit(X_train_counts)
-
 
         from sklearn.feature_extraction.text import TfidfVectorizer
 
@@ -169,10 +163,10 @@ def predict():
         # print(data["plot"])
 
         if data["plot"]:
-
             plot = data["plot"]
             plot = remove_punct(plot)
             plot = remove_stopwords(plot)
+            plot = stemming(plot)
             plot_len = len(plot)
             # hashed_vec = cv.transform([plot])
             # tfidf_vec = tf_transformer.transform(hashed_vec)
@@ -235,6 +229,8 @@ def predict():
         print("RAN SUCCESSFUL")
         print("-----------------------------")
         return 'Sucesss', 200
+
+
 
 
 if __name__ == '__main__':

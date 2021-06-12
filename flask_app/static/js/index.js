@@ -32,11 +32,11 @@ d3.select("#submit-btn").on("click", function(){
 
         if(d3.select(this).classed("selected")){
             var genre = this.value;
-            input[genre] = int(1);
+            input[genre] = parseInt(1);
         }
         else{
             var genre = this.value;
-            input[genre] = int(0);
+            input[genre] = parseInt(0);
         }
     })
 
