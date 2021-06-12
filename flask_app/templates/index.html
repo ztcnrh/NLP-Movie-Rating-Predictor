@@ -45,10 +45,10 @@
           <div class="row justify-content-center">
             <form>
               <div class="form-group">
-                <label for="inputPlot" class="form-label">Plot</label>
-                <textarea class="form-control" id="inputPlot" rows="4"></textarea>
-                <div id="plotdHelpBlock" class="form-text">
-                    Enter your plot here.
+                <label for="inputPlot" class="form-label"><h1>Plot</h1></label>
+                <textarea placeholder="Enter your plot here..." class="form-control" id="inputPlot" rows="4"></textarea>
+                <!-- <div id="plotdHelpBlock" class="form-text">
+                    Enter your plot here. -->
                 </div>
               </div>
             </form>
@@ -59,40 +59,40 @@
             <table>
               <tbody>
                 <tr style="text-align: center">
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="">Action</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Adventure</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Drama</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="action">Action</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="adventure">Adventure</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="drama">Drama</button></td>
                 </tr>
                 <tr style="text-align: center">
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Comedy</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Biography</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Crime</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="comedy">Comedy</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="biography">Biography</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="crime">Crime</button></td>
                 </tr>
                 <tr style="text-align: center">
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Animation</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Horror</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Mystery</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="animation">Animation</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="horror">Horror</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="mystery">Mystery</button></td>
                 </tr>
                 <tr style="text-align: center">
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Sci-Fi</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Western</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Thriller</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="sci-fi">Sci-Fi</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="western">Western</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="thriller">Thriller</button></td>
                 </tr>
                 <tr style="text-align: center">
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Romance</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Fantasy</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Family</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="romance">Romance</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="fantasy">Fantasy</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="family">Family</button></td>
                 </tr>
                 <tr style="text-align: center">
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Musical</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light">War</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="musical">Musical</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="war">War</button></td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <!-- Submit Form Button -->
-          <button type="button" class="btn btn-primary">Rate Your Movie</button>
+          <button type="button" id="submit-btn" class="btn btn-primary">Rate Your Movie</button>
 
         </div>
 
@@ -103,11 +103,6 @@
       </div>
 
     </div> 
-    
-
-
-
-
     
 
     <!-- D3 CDN -->
