@@ -32,17 +32,36 @@ d3.select("#submit-btn").on("click", function(){
 
         if(d3.select(this).classed("selected")){
             var genre = this.value;
-            input[genre] = 1;
+            input[genre] = int(1);
         }
         else{
             var genre = this.value;
-            input[genre] = 0;
+            input[genre] = int(0);
         }
     })
 
     // final input to POST
     console.log(input);
+
+
+    //send input to serve
+    $.ajax({
+      type: 'POST',
+      url: '/predict',
+      data: JSON.stringify(input),
+      dataType: 'json',
+      contentType: 'application/json; charset=utf-8'
+      }).done(function(msg) {
+      console.log(msg);
+
+
+
+
+  });
+
   })
+
+
 
 
   
