@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Movies</title>
     <!--Bootswatch CSS Theme-->
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     
     <!-- Our CSS  -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
@@ -16,7 +16,7 @@
 
   <body>
     <!--Navigation Bar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">Movies</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,10 +33,82 @@
     </nav>
 
 
+
+    <!-- Container -->
     <div class="container">
+
+      <div class="row justify-content-center">
+
+        <!-- Inupt Area -->
+        <div class="col-8">
+          <!-- Plot form -->
+          <div class="row justify-content-center">
+            <form>
+              <div class="form-group">
+                <label for="inputPlot" class="form-label">Plot</label>
+                <textarea class="form-control" id="inputPlot" rows="4"></textarea>
+                <div id="plotdHelpBlock" class="form-text">
+                    Enter your plot here.
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Genre Buttons -->
+          <div class="row justify-content-center">
+            <table>
+              <tbody>
+                <tr style="text-align: center">
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="">Action</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Adventure</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Drama</button></td>
+                </tr>
+                <tr style="text-align: center">
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Comedy</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Biography</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Crime</button></td>
+                </tr>
+                <tr style="text-align: center">
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Animation</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Horror</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Mystery</button></td>
+                </tr>
+                <tr style="text-align: center">
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Sci-Fi</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Western</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Thriller</button></td>
+                </tr>
+                <tr style="text-align: center">
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Romance</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Fantasy</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Family</button></td>
+                </tr>
+                <tr style="text-align: center">
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light">Musical</button></td>
+                  <td><button style="width:140px" type="button" class="btn btn-outline-light">War</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Submit Form Button -->
+          <button type="button" class="btn btn-primary">Rate Your Movie</button>
+
+        </div>
+
+        <!-- Output Area -->
+        <div class="col-4">
+
+        </div>
+      </div>
+
     </div> 
     
 
+
+
+
+    
 
     <!-- D3 CDN -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
