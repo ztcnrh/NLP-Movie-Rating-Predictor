@@ -35,80 +35,102 @@
     </nav>
 
 
-
+    
     <!-- Container -->
     <div class="container">
 
-      <div class="row justify-content-center">
-
+      <div class="row justify-content-center top-row">
         <!-- Inupt Area -->
         <div class="col-8">
           <!-- Plot form -->
           <div class="row justify-content-center">
             <form>
               <div class="form-group">
-                <label for="inputPlot" class="form-label"><h1>Plot</h1></label>
+                <label for="inputPlot" class="form-label" id="plot"><h2>Plot</h2></label>
                 <textarea placeholder="Enter your plot here..." class="form-control" id="inputPlot" rows="4"></textarea>
-                <!-- <div id="plotdHelpBlock" class="form-text">
-                    Enter your plot here. -->
-                </div>
               </div>
             </form>
           </div>
 
           <!-- Genre Buttons -->
-          <div class="row justify-content-center">
-            <table>
-              <tbody>
-                <tr style="text-align: center">
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="action">Action</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="adventure">Adventure</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="fantasy">Fantasy</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="sci-fi">Sci-Fi</button></td>
-                </tr>
-                <tr style="text-align: center">
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="crime">Crime</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="drama">Drama</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="history">History</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="comedy">Comedy</button></td>
-                </tr>
-                <tr style="text-align: center">
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="biography">Biography</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="romance">Romance	</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="horror">Horror</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="thriller">Thriller</button></td>
-                </tr>
-                <tr style="text-align: center">
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="war">War</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="animation">Animation</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="family">Family</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="sport">Sport</button></td>
-                </tr>
-                <tr style="text-align: center">
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="music">Music</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="mystery">Mystery</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="short">Short</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="western">Western</button></td>
-                </tr>
-                <tr style="text-align: center">
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="musical">Musical</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="documentary">Documentary</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="film-noir">Film-Noir</button></td>
-                  <td><button style="width:140px" type="button" class="btn btn-outline-light" value="adult">Adult</button></td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="row justify-content-center top-margin">
+            <h3>Genres</h3>
+            <p style="margin-bottom: 0;"><small class="text-muted">Select multiple genres to rate...</small></p>
+            <br><br>
+            <div class="row justify-content-center" style="text-align: center">
+              <div class="col">
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="action">Action</button>
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="adventure">Adventure</button>
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="fantasy">Fantasy</button>
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="sci-fi">Sci-Fi</button>
+              </div>
+            </div>
+            <div class="row justify-content-center" style="text-align: center">
+              <div class="col">
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="crime">Crime</button>
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="drama">Drama</button>
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="history">History</button>
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="comedy">Comedy</button>
+              </div>
+            </div>
+            <div class="row justify-content-center" style="text-align: center">
+              <div class="col">
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="biography">Biography</button>
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="romance">Romance</button>
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="horror">Horror</button>
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="thriller">Thriller</button>
+              </div>
+            </div>
+            <div class="row justify-content-center" style="text-align: center">
+              <div class="col">
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="war">War</button>
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="animation">Animation</button>
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="family">Family</button>
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="sport">Sport</button>
+              </div>
+            </div>
+            <div class="row justify-content-center" style="text-align: center">
+              <div class="col">
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="music">Music</button>
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="mystery">Mystery</button>
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="short">Short</button>
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="western">Western</button>
+              </div>
+            </div>
+            <div class="row justify-content-center" style="text-align: center">
+              <div class="col">
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="musical">Musical</button>
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="documentary">Documentary</button>
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="film-noir">Film-Noir</button>
+                <button style="width:130px" type="button" class="btn btn-outline-light btn-margin" value="adult">Adult</button>
+              </div>
+            </div>
           </div>
+        </div>
 
+        <div class="col-4">
+            <div class="card border-secondary text-white bg-dark mb-3" id="card-margin" style="max-width: 20rem;">
+              <div class="card-header" style="text-align: center; margin-top: 10px;"><h2>Your movie is rated:</h2></div>
+              <div class="card-body" style="padding-top: 8px; padding-bottom: 8px;">
+                <h1 id="rating" style="text-align: center">R</h1>
+              </div>
+            </div>
           <!-- Submit Form Button -->
-          <button type="button" id="submit-btn" class="btn btn-primary">Rate Your Movie</button>
-
+          <div class="row justify-content-center" style="text-align: center">
+            <div class="col">
+              <button type="button" id="submit-btn" class="btn btn-outline-secondary top-margin"><h4 id="rate-buffer">Rate Your Movie</h4></button>
+            </div>
+          </div>
         </div>
 
      
     </div>
 
     
+
+
+
+
 
     <!-- D3 CDN -->
     <script src="https://d3js.org/d3.v5.min.js"></script>

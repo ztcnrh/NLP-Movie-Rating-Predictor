@@ -1,12 +1,30 @@
-/* Keep */
-
 .selected {
     /* color: #44d9e8; */
     background-color: #44d9e8;
 }
 
-/* #bottom-margin {
-    margin-bottom: 30px;
-} */
+.top-row {
+    margin-top:35px;
+}
 
+.top-margin {
+    margin-top: 30px;
+}
 
+#card-margin {
+    margin-top: 40px;
+}
+
+.btn-margin {
+    margin: 5px;
+}
+
+#rating {
+    font-size: 100px;
+    color: red;
+}
+
+#rate-buffer {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
