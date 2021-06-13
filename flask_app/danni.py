@@ -185,7 +185,7 @@ def predict():
 
         output = clf.predict(input_mat)
 
-        print(type(int(output[0])))
+        print(int(output[0]))
 
 
         print("-----------------------------")
