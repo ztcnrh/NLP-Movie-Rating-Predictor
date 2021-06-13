@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 from os import environ
-from flask import Flask, render_template, redirect, jsonify, request
+from flask import Flask, render_template, redirect, jsonify, request, url_for
 
 
 app = Flask(__name__)
@@ -31,11 +31,8 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-
 @app.route("/predict", methods =['GET','POST'])
 def predict():
-
-
 
     """
     create model and pipeline
@@ -124,10 +121,10 @@ def predict():
     end of model
     """ 
 
-    # GET request
-    if request.method == 'GET':
-        message = {'greeting':'Hello from Flask!'}
-        return jsonify(message)  # serialize and use JSON headers
+    # # GET request
+    # if request.method == 'GET':
+    #     message = {'greeting':'Hello from Flask!'}
+    #     return jsonify(message)  # serialize and use JSON headers
 
 
     # POST request
@@ -186,15 +183,16 @@ def predict():
         print(X_train_full.shape)
         print(input_mat.shape)
 
-        predictions = clf.predict(input_mat)
+        output = clf.predict(input_mat)
 
-        print(predictions)
+        print(type(int(output[0])))
 
 
         print("-----------------------------")
         print("RAN SUCCESSFUL")
         print("-----------------------------")
-        return 'Sucesss', 200
+
+        return render_template("rating.html", predictions = int(output[0]))
 
 
 if __name__ == '__main__':
