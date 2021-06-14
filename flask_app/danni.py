@@ -12,9 +12,7 @@ app = Flask(__name__)
 # model = open('/Users/daniellepintacasi/finalproject/flask_app/ratings_SVM_classifier.sav','rb')
 # clf = joblib.load(model)
 
-
 # import joblib
-
 # model = joblib.dump(model, "ratings_SVM_classifier.sav")
 
 
@@ -22,9 +20,6 @@ app = Flask(__name__)
 # ---------------------------------
 # ---------------------------------
 
-# import joblib
-
-# loaded_model = joblib.load('rating_linear_svc_with_genre.sav')
 
 # Home Route
 @app.route('/')
@@ -193,10 +188,6 @@ def predict():
     return jsonify(output)
 
 
-    # GET request
-    # else:
-    #     message = {'greeting':'Hello from Flask!'}
-    #     return jsonify(message)
 
 
 if __name__ == '__main__':
