@@ -1,5 +1,4 @@
 .selected {
-    /* color: #44d9e8; */
     background-color: #44d9e8;
 }
 
@@ -19,10 +18,9 @@
     margin: 5px;
 }
 
-#rating {
+/* #rating {
     font-size: 100px;
-    color: red;
-}
+} */
 
 #rate-buffer {
     margin-top: 6px;

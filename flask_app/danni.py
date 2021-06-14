@@ -12,9 +12,7 @@ app = Flask(__name__)
 # model = open('/Users/daniellepintacasi/finalproject/flask_app/ratings_SVM_classifier.sav','rb')
 # clf = joblib.load(model)
 
-
 # import joblib
-
 # model = joblib.dump(model, "ratings_SVM_classifier.sav")
 
 
@@ -22,16 +20,13 @@ app = Flask(__name__)
 # ---------------------------------
 # ---------------------------------
 
-# import joblib
-
-# loaded_model = joblib.load('rating_linear_svc_with_genre.sav')
 
 # Home Route
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route("/predict", methods =['GET','POST'])
+@app.route("/predict", methods =['POST'])
 def predict():
 
     """
@@ -107,10 +102,8 @@ def predict():
     X_train_full = hstack([X_train_tfidf, X_train_extra_features_mat])
     X_test_full = hstack([X_test_tfidf, X_test_extra_features_mat])
 
-    # #fit the model
-
+    # fit the model
     from sklearn.svm import LinearSVC 
-
     clf = LinearSVC(class_weight='balanced',verbose=2, random_state=42,max_iter=100000)
     # from sklearn.svm import SVC 
     # model = SVC(kernel='linear',  class_weight='balanced')
@@ -128,71 +121,73 @@ def predict():
 
 
     # POST request
-    if request.method == 'POST':
-        print(request.get_json())  # parse as JSON
-        data = request.get_json()
+    # if request.method == 'POST':
+    print(request.get_json())  # parse as JSON
+    data = request.get_json()
 
-        if data["plot"]:
-            plot = data["plot"]
-            plot_len = len(plot)
-            plot = remove_punct(plot)
-            plot = remove_stopwords(plot)
-            hashed_vec = cv.transform([plot])
-            tfidf_vec = tf_transformer.transform(hashed_vec)
-            plot_len_scaled = plot_len_scaler.transform(np.array(plot_len).reshape(-1,1))
-
-
-        extra_features_df = pd.DataFrame({
-            "plot_len" : plot_len_scaled[0][0],
-            "action": data["action"],
-            "adventure": data["adventure"],
-            "fantasy"	: data["fantasy"],
-            "sci-fi"	: data["sci-fi"],            
-            "crime"	: data["crime"],
-            "drama"	: data["drama"],
-            "history" : data["history"],
-            "comedy"	: data["comedy"],
-            "biography"	: data["biography"],
-            "romance"	: data["romance"],
-            "horror"	: data["horror"],
-            "thriller"	: data["thriller"],
-            "war"	: data["war"],
-            "animation"	: data["animation"],
-            "family"	: data["family"],
-            "sport" : data["family"],
-            "music" : data["music"],
-            "mystery"	: data["mystery"],
-            "short" : data["short"],
-            "western" : data["western"],
-            "musical"	: data["musical"],
-            "documentary" : data["documentary"],
-            "film-noir" : data["film-noir"],
-            "adult" : data["adult"],
-            }, index = [0])
-        
-        
-        from scipy.sparse import csr_matrix
-
-        extra_features_mat = csr_matrix(extra_features_df)
-
-        from scipy.sparse import hstack
-
-        input_mat = hstack([tfidf_vec, extra_features_mat])
-
-        
-        print(X_train_full.shape)
-        print(input_mat.shape)
-
-        output = clf.predict(input_mat)
-
-        print(int(output[0]))
+    if data["input"]["plot"]:
+        data = data["input"]
+        plot = data["plot"]
+        plot_len = len(plot)
+        plot = remove_punct(plot)
+        plot = remove_stopwords(plot)
+        hashed_vec = cv.transform([plot])
+        tfidf_vec = tf_transformer.transform(hashed_vec)
+        plot_len_scaled = plot_len_scaler.transform(np.array(plot_len).reshape(-1,1))
 
 
-        print("-----------------------------")
-        print("RAN SUCCESSFUL")
-        print("-----------------------------")
+    extra_features_df = pd.DataFrame({
+        "plot_len" : plot_len_scaled[0][0],
+        "action": data["action"],
+        "adventure": data["adventure"],
+        "fantasy"	: data["fantasy"],
+        "sci-fi"	: data["sci-fi"],            
+        "crime"	: data["crime"],
+        "drama"	: data["drama"],
+        "history" : data["history"],
+        "comedy"	: data["comedy"],
+        "biography"	: data["biography"],
+        "romance"	: data["romance"],
+        "horror"	: data["horror"],
+        "thriller"	: data["thriller"],
+        "war"	: data["war"],
+        "animation"	: data["animation"],
+        "family"	: data["family"],
+        "sport" : data["family"],
+        "music" : data["music"],
+        "mystery"	: data["mystery"],
+        "short" : data["short"],
+        "western" : data["western"],
+        "musical"	: data["musical"],
+        "documentary" : data["documentary"],
+        "film-noir" : data["film-noir"],
+        "adult" : data["adult"],
+        }, index = [0])
+    
+    
+    from scipy.sparse import csr_matrix
 
-        return render_template("rating.html", predictions = int(output[0]))
+    extra_features_mat = csr_matrix(extra_features_df)
+
+    from scipy.sparse import hstack
+
+    input_mat = hstack([tfidf_vec, extra_features_mat])
+
+    
+    print(X_train_full.shape)
+    print(input_mat.shape)
+
+    output = int(clf.predict(input_mat))
+
+    print(output)
+
+    print("-----------------------------")
+    print("RAN SUCCESSFUL")
+    print("-----------------------------")
+
+    return jsonify(output)
+
+
 
 
 if __name__ == '__main__':
