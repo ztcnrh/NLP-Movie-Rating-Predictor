@@ -24,12 +24,20 @@ d3.select("#submit-btn").on("click", function(){
   
   // Check if plot is null. Notify the user if it is...
   if (!plot) {
-      d3.select("#plot")
-      .append("p")
-      .style("margin-bottom", 0)
-      .append("small")
-      .text("Please enter a plot in the text box to get more accurate result :)")
-      .classed("text-danger", true)
+    d3.select("#plot p small")
+    .text("Please enter a plot in the text box to get more accurate result :)")
+    .classed("text-danger", true);
+    // Erase margin on <p>
+    d3.select("#plot p")
+    .style("margin-bottom", 0);
+  }
+  else {
+    d3.select("#plot p small")
+    .text("")
+    .classed("text-danger", false);
+    // Erase margin on <p>
+    d3.select("#plot p")
+    .style("margin-bottom", 0);
   }
 
   input["plot"] = plot;
@@ -49,8 +57,9 @@ d3.select("#submit-btn").on("click", function(){
       }
   })
 
-  // Final input to POST
-  console.log(input);
+  // // Final input to POST
+  // console.log(input);
+
   // -----------------------
 
   // -----------------------
@@ -71,8 +80,8 @@ d3.select("#submit-btn").on("click", function(){
     return response.text();
   }).then(function (prediction) {
 
-    // Present prediction
-    console.log(`Prediction: ${prediction}`);
+    // // Present prediction
+    // console.log(`Prediction: ${prediction}`);
     
     // Condition to categorize prediction outcome to HTML template
     if (prediction == 0) {
@@ -93,11 +102,16 @@ d3.select("#submit-btn").on("click", function(){
       .classed("text-success text-info text-warning text-danger", false)
       .classed("text-warning", true)
     }
-    else { // Rated-R
+    else if (prediction == 3) { // Rated-R
       d3.select("#rating")
       .text("R")
       .classed("text-success text-info text-warning text-danger", false)
       .classed("text-danger", true)
+    }
+    else { // Remove rating if no plot is entered
+      d3.select("#rating")
+      .text("")
+      .classed("text-success text-info text-warning text-danger", false)
     }
   });
 });
