@@ -1,0 +1,20 @@
+.top-row {
+    margin-top: 35px;
+}
+
+.link-underline:hover {
+    text-decoration: underline;
+    color: #ea39b8;
+}
+
+a {
+    text-decoration: none;
+}
+
+.card-body{
+    font-size: 0.9rem;
+}
+
+.list-group{
+    font-size: 0.85rem;
+}
