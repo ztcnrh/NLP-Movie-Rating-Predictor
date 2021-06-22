@@ -1,6 +1,6 @@
 # Movie Rating Predictor :movie_camera: - An ML and NLP Project
 
-*Last Updated: June 19, 2021*
+*Last Updated: June 21, 2021*
 
 **Highlevel**: This is an application with an embedded Machine Learning (ML) algorithm utilizing Natural Language Processing (NLP) techniques that predicts movie MPA rating with movie plot and genres as inputs.<br>
 **View the deployed app (Heroku) here**: WIP...
