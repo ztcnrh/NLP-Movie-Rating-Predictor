@@ -1,0 +1,6 @@
+image_highlights/
+notebooks/
+presentation/
+resources/
+saved_models/
+app_fitted_alternative.py
