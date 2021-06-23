@@ -1,17 +1,17 @@
 // Class selected genres & apply styling
-d3.selectAll(".btn-outline-light").on("click", function(){
+d3.selectAll(".btn-outline-light").on("click", function() {
     var selection = d3.select(this);
-    if (selection.classed("selected")){
+    if (selection.classed("selected")) {
       selection.classed("selected", false);
     }
-    else{
+    else {
       selection.classed("selected",true);
     };
 });
 
 
 // Submission function
-d3.select("#submit-btn").on("click", function(){
+d3.select("#submit-btn").on("click", function() {
 
   // Button click confirmation
   // console.log("Submitted..."); 
@@ -45,17 +45,22 @@ d3.select("#submit-btn").on("click", function(){
   // Grab genres and append to object
   // If button is selected, give value of 1, else 0
   var genres = d3.selectAll(".btn-outline-light");
-  genres.each(function(){
+  genres.each(function() {
 
-      if(d3.select(this).classed("selected")){
+      if (d3.select(this).classed("selected")) {
           var genre = this.value;
           input[genre] = parseInt(1);
       }
-      else{
+      else {
           var genre = this.value;
           input[genre] = parseInt(0);
       }
   })
+
+  // Add spinner to indicate our server is trying predict the result when the button is clicked
+  d3.select(this)
+    .html("<span class='spinner-border' role='status' aria-hidden='true'></span><h4 id='rate-buffer'>Predicting...</h4>")
+    .classed("disabled", true);
 
   // // Final input to POST
   // console.log(input);
@@ -113,6 +118,12 @@ d3.select("#submit-btn").on("click", function(){
       .text("")
       .classed("text-success text-info text-warning text-danger", false)
     }
+
+    // Restore the original button text and functionality after prediction outcome is returned
+    d3.select("#submit-btn")
+      .html("<h4 id='rate-buffer'>Rate Your Movie</h4>")
+      .classed("disabled", false);
+    
   });
 });
 
