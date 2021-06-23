@@ -1,9 +1,9 @@
 # Movie Rating Predictor :movie_camera: - An ML and NLP Project
 
-*Last Updated: June 19, 2021*
+*Last Updated: June 22, 2021*
 
 **Highlevel**: This is an application with an embedded Machine Learning (ML) algorithm utilizing Natural Language Processing (NLP) techniques that predicts movie MPA rating with movie plot and genres as inputs.<br>
-**View the deployed app (Heroku) here**: WIP...
+**View the deployed app (Heroku) here**: https://movie-rating-predictor.herokuapp.com/
 
 *View our presentation deck [here](https://docs.google.com/presentation/d/1IeEMjEUwlET_dmpA2JHjVTv4bb1F3u98FgvrikCeNEA/edit?usp=sharing)*
 
@@ -50,6 +50,7 @@ Thus, we decided to build algorithms based on a movies dataset because we were a
 * Our application was built in flask.
 * ETL (parsing and inflation adjustment), encoding, and data preprocessing including Natural Language Processing (with movie plots) were performed and Machine Learning models were fitted. Throughout the process, the vectorizer, scaler along with the ML classifier were saved/pickled to be utilized in our flask app.
 * User inputs were collected from the web and sent to flask app for outcome predictions. The outcome was then sent back and rendered on the web.
+* The application was deployed on Heroku.
 
 ## App Highlights
 
