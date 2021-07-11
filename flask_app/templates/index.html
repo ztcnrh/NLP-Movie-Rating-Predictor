@@ -17,23 +17,35 @@
     <style>
       /* Media query rating output */
       @media screen and (max-width: 500px) {
-        .media-rating {
+        .media-rating-pred {
           font-size: 30px;
+        }
+        .media-rating-prob {
+          font-size: 0.5em;
         }
       }
       @media screen and (min-width: 500px) {
-        .media-rating {
+        .media-rating-pred {
           font-size: 35px;
+        }
+        .media-rating-prob {
+          font-size: 0.6em;
         }
       }
       @media screen and (min-width: 768px) {
-        .media-rating {
+        .media-rating-pred {
           font-size: 60px;
+        }
+        .media-rating-prob {
+          font-size: 0.7em;
         }
       }
       @media screen and (min-width: 992px) {
-        .media-rating {
+        .media-rating-pred {
           font-size: 80px;
+        }
+        .media-rating-prob {
+          font-size: 0.8em;
         }
       }
     </style>
@@ -50,7 +62,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link" href="/about">About</a>
+            <!-- <a class="nav-link" href="/about">About</a> -->
             <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a> -->
           </div>
         </div>
@@ -136,7 +148,8 @@
               <div class="card-header" style="text-align: center; margin-top: 10px;"><h2>Your movie is rated:</h2></div>
               <div class="card-body" style="padding-top: 8px; padding-bottom: 8px;">
                 <!-- Rating prediction goes here -->
-                <h1 class="media-rating" id="rating" style="text-align: center"></h1>
+                <h1 class="media-rating-pred" id="rating" style="text-align: center"></h1>
+                <p class="p-btn-margin text-secondary" style="text-align: center"><small><em class="media-rating-prob" id="probability"></em></small></p>
               </div>
             </div>
           <!-- Submit Form Button -->

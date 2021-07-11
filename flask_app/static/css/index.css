@@ -18,9 +18,9 @@
     margin: 5px;
 }
 
-/* #rating {
-    font-size: 100px;
-} */
+.p-btn-margin {
+    margin-bottom: 0px;
+}
 
 #rate-buffer {
     margin-top: 6px;

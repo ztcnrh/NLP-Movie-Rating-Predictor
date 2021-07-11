@@ -25,9 +25,9 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/about')
-def about():
-    return render_template("about.html")
+# @app.route('/about')
+# def about():
+#     return render_template("about.html")
 
 @app.route("/predict", methods =['POST'])
 def predict():
@@ -143,11 +143,17 @@ def predict():
     print(input_mat.shape)
 
     # Load trained model for predictions
-    classifer = "flask_app/deployed_SVM_ratings_classifier.sav"
+    classifer = "flask_app/deployed_SVM_ratings_classifier_prob.sav"
     clf = joblib.load(classifer)
     
     # Predict outcome using user selected inputs
-    output = int(clf.predict(input_mat))
+    pred_class = int(clf.predict(input_mat))
+    class_prob = round(float(clf.predict_proba(input_mat)[0][pred_class] * 100), 2)
+    class_prob = str(class_prob) + '%'
+
+    output = {}
+    output['class'] = pred_class
+    output['prob'] = class_prob
 
     print("----------------------")
     print("Prediction (0:G, 1:PG, 2:PG-13, 3:R):")
