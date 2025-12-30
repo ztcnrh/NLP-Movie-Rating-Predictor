@@ -12,8 +12,12 @@ postgres_password.py
 rating_random_forests.sav
 rating_random_forests_with_genre.sav
 rating_deep_learning_with_genre.h5
-# Ignore all saved models
-saved_models/
+# Ignore all saved models except .gitkeep
+saved_models/*
+!saved_models/.gitkeep
+!saved_models/deployed_model/
+saved_models/deployed_model/*
+!saved_models/deployed_model/.gitkeep
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
