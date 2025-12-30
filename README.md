@@ -3,7 +3,8 @@
 *Last Updated: June 22, 2021*
 
 **Highlevel**: This is an application with an embedded Machine Learning (ML) algorithm utilizing Natural Language Processing (NLP) techniques that predicts movie MPA rating with movie plot and genres as inputs.<br>
-**View the deployed app (Heroku) here**: https://movie-rating-predictor.herokuapp.com/
+**View the deployed app (Heroku) here (DEPRECATED)**: https://movie-rating-predictor.herokuapp.com/
+- NOTE: I had torn down the deployed resources to save cost.
 
 *View our presentation deck [here](https://docs.google.com/presentation/d/1IeEMjEUwlET_dmpA2JHjVTv4bb1F3u98FgvrikCeNEA/edit?usp=sharing)*
 
